@@ -1,14 +1,14 @@
-FROM node:18-alpine
+FROM node:18-slim
 
 WORKDIR /app
 
-# Install dependencies including OpenSSL for Prisma
-RUN apk add --no-cache \
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
     dumb-init \
     curl \
     openssl \
-    libssl1.1 \
-    ca-certificates
+    ca-certificates \
+    && rm -rf /var/lib/apt/lists/*
 
 # Copy package files
 COPY package*.json ./
@@ -20,8 +20,8 @@ RUN npm ci
 # Copy source code
 COPY . .
 
-# Generate Prisma client with proper binary targets
-RUN npx prisma generate --binary-targets linux-musl
+# Generate Prisma client
+RUN npx prisma generate
 
 # Build application
 RUN npm run build
@@ -33,8 +33,8 @@ RUN npm prune --production
 RUN mkdir -p uploads
 
 # Create non-root user
-RUN addgroup -g 1001 -S nodejs && \
-    adduser -S nestjs -u 1001 -G nodejs
+RUN groupadd -g 1001 nodejs && \
+    useradd -r -u 1001 -g nodejs nestjs
 
 # Set proper permissions
 RUN chown -R nestjs:nodejs /app && \
