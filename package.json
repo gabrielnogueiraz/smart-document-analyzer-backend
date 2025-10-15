@@ -30,6 +30,10 @@
     "docker:compose:down": "docker-compose down",
     "docker:compose:prod": "docker-compose -f docker-compose.prod.yml up -d",
     "deploy": "bash scripts/deploy.sh",
+    "railway:deploy": "bash scripts/railway-deploy.sh",
+    "railway:init": "railway init",
+    "railway:up": "railway up",
+    "railway:open": "railway open",
     "security:audit": "npm audit",
     "security:fix": "npm audit fix"
   },
