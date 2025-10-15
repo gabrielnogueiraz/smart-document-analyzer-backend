@@ -1,0 +1,63 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  password  String
+  name      String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relations
+  documents Document[]
+  analyses  Analysis[]
+
+  @@map("users")
+}
+
+model Document {
+  id          String   @id @default(cuid())
+  title       String
+  filename    String
+  filePath    String
+  fileSize    Int
+  mimeType    String
+  extractedText String?
+  userId      String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  // Relations
+  user     User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  analyses Analysis[]
+
+  @@map("documents")
+}
+
+model Analysis {
+  id         String   @id @default(cuid())
+  documentId String
+  userId     String
+  summary    String
+  topics     String[] // Array of topics/keywords
+  insights   String?
+  groqApiKey String?  // Store temporarily for processing, then clear
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  // Relations
+  document Document @relation(fields: [documentId], references: [id], onDelete: Cascade)
+  user     User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("analyses")
+}
