@@ -31,6 +31,7 @@
     "docker:compose:prod": "docker-compose -f docker-compose.prod.yml up -d",
     "deploy": "bash scripts/deploy.sh",
     "railway:deploy": "bash scripts/railway-deploy.sh",
+    "railway:setup": "bash scripts/railway-setup.sh",
     "railway:init": "railway init",
     "railway:up": "railway up",
     "railway:open": "railway open",
