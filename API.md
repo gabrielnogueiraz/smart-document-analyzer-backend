@@ -1,12 +1,12 @@
-# 📚 Documentação da API - Smart Document Analyzer
+# Documentação da API - Smart Document Analyzer
 
-## 🔗 Base URL
+## Base URL
 
 ```
 http://localhost:3333
 ```
 
-## 🔐 Autenticação
+## Autenticação
 
 Todos os endpoints (exceto `/auth/*`) requerem autenticação via JWT Bearer Token.
 
@@ -14,9 +14,7 @@ Todos os endpoints (exceto `/auth/*`) requerem autenticação via JWT Bearer Tok
 Authorization: Bearer <access_token>
 ```
 
----
-
-## 🚪 Endpoints de Autenticação
+## Endpoints de Autenticação
 
 ### POST /auth/register
 
@@ -89,9 +87,7 @@ Renova o token de acesso usando o refresh token.
 }
 ```
 
----
-
-## 👤 Endpoints de Usuários
+## Endpoints de Usuários
 
 ### GET /users/profile
 
@@ -156,9 +152,7 @@ Obtém estatísticas do usuário.
 }
 ```
 
----
-
-## 📄 Endpoints de Documentos
+## Endpoints de Documentos
 
 ### POST /documents/upload
 
@@ -273,9 +267,7 @@ Deleta um documento e todas as análises associadas.
 
 **Response (204):** No Content
 
----
-
-## 🤖 Endpoints de Análise
+## Endpoints de Análise
 
 ### POST /analysis
 
@@ -397,9 +389,7 @@ Deleta uma análise específica.
 
 **Response (204):** No Content
 
----
-
-## ❌ Códigos de Erro
+## Códigos de Erro
 
 ### 400 - Bad Request
 ```json
@@ -464,9 +454,7 @@ Deleta uma análise específica.
 }
 ```
 
----
-
-## 🔧 Exemplos de Uso
+## Exemplos de Uso
 
 ### Fluxo Completo
 
@@ -500,6 +488,4 @@ curl -X POST http://localhost:3333/analysis \
   -d '{"documentId":"<document-id>","groqApiKey":"<groq-api-key>"}'
 ```
 
----
-
-**API completa e documentada** 📚✨
+API completa e documentada

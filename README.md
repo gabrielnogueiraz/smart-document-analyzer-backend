@@ -1,22 +1,22 @@
-# 🧠 Smart Document Analyzer
+# Smart Document Analyzer
 
-> **Backend para análise inteligente de documentos acadêmicos usando IA**
+Backend para análise inteligente de documentos acadêmicos usando IA.
 
-Um sistema robusto e escalável desenvolvido com **NestJS + TypeScript + Prisma + PostgreSQL** que permite upload de documentos PDF, extração de texto e análise inteligente usando a **Groq Cloud API (Llama 3)**.
+Sistema desenvolvido com NestJS + TypeScript + Prisma + PostgreSQL que permite upload de documentos PDF, extração de texto e análise inteligente usando Groq Cloud API.
 
-## 🚀 Características
+## Características
 
-- ✅ **Autenticação JWT** com refresh tokens
-- ✅ **Upload de PDFs** com extração automática de texto
-- ✅ **Análise com IA** usando Groq Cloud API (Llama 3)
-- ✅ **Arquitetura modular** e escalável
-- ✅ **Segurança robusta** com rate limiting e validações
-- ✅ **Documentação Swagger** completa
-- ✅ **Testes unitários e e2e** com alta cobertura
-- ✅ **Logging estruturado** com Winston
-- ✅ **Validação de dados** com class-validator
+- Autenticação JWT com refresh tokens
+- Upload de PDFs com extração automática de texto
+- Análise com IA usando Groq Cloud API
+- Arquitetura modular e escalável
+- Segurança robusta com rate limiting e validações
+- Documentação Swagger completa
+- Testes unitários e e2e
+- Logging estruturado com Winston
+- Validação de dados com class-validator
 
-## 🏗️ Arquitetura
+## Arquitetura
 
 ```
 src/
@@ -36,26 +36,26 @@ src/
 └── main.ts              # Ponto de entrada da aplicação
 ```
 
-## 🛠️ Stack Tecnológica
+## Stack Tecnológica
 
-- **Framework**: NestJS 10.x
-- **Linguagem**: TypeScript 5.x
-- **Banco de Dados**: PostgreSQL
-- **ORM**: Prisma 5.x
-- **Autenticação**: JWT + Passport
-- **Validação**: class-validator + class-transformer
-- **Documentação**: Swagger/OpenAPI
-- **Testes**: Jest
-- **Logging**: Winston
-- **IA**: Groq Cloud API (Llama 3)
+- Framework: NestJS 10.x
+- Linguagem: TypeScript 5.x
+- Banco de Dados: PostgreSQL
+- ORM: Prisma 5.x
+- Autenticação: JWT + Passport
+- Validação: class-validator + class-transformer
+- Documentação: Swagger/OpenAPI
+- Testes: Jest
+- Logging: Winston
+- IA: Groq Cloud API
 
-## 📋 Pré-requisitos
+## Pré-requisitos
 
 - Node.js 18+ 
 - PostgreSQL 13+
 - npm ou yarn
 
-## 🚀 Instalação e Configuração
+## Instalação e Configuração
 
 ### 1. Clone o repositório
 
@@ -139,14 +139,14 @@ npm run build
 npm run start:prod
 ```
 
-## 📚 Documentação da API
+## Documentação da API
 
 Após iniciar a aplicação, acesse:
 
-- **Swagger UI**: http://localhost:3333/api/docs
-- **Health Check**: http://localhost:3333/health
+- Swagger UI: http://localhost:3333/api/docs
+- Health Check: http://localhost:3333/health
 
-## 🔐 Autenticação
+## Autenticação
 
 O sistema usa **JWT (JSON Web Tokens)** com refresh tokens:
 
@@ -175,7 +175,7 @@ POST /auth/login
 Authorization: Bearer <access_token>
 ```
 
-## 📄 Upload de Documentos
+## Upload de Documentos
 
 ### Upload de PDF
 ```bash
@@ -199,7 +199,7 @@ GET /documents/{id}/text
 Authorization: Bearer <token>
 ```
 
-## 🤖 Análise com IA
+## Análise com IA
 
 ### Criar Análise
 ```bash
@@ -223,7 +223,7 @@ Authorization: Bearer <token>
 }
 ```
 
-## 🧪 Testes
+## Testes
 
 ```bash
 # Testes unitários
@@ -239,15 +239,15 @@ npm run test:e2e
 npm run test:watch
 ```
 
-## 🔒 Segurança
+## Segurança
 
-- **Rate Limiting**: 100 requests/15min por IP
-- **Validação de Arquivos**: Apenas PDFs, máximo 10MB
-- **Sanitização**: Limpeza automática de dados de entrada
-- **Headers de Segurança**: Helmet.js configurado
-- **CORS**: Configurado para desenvolvimento e produção
+- Rate Limiting: 100 requests/15min por IP
+- Validação de Arquivos: Apenas PDFs, máximo 10MB
+- Sanitização: Limpeza automática de dados de entrada
+- Headers de Segurança: Helmet.js configurado
+- CORS: Configurado para desenvolvimento e produção
 
-## 📊 Monitoramento
+## Monitoramento
 
 ### Logs Estruturados
 ```typescript
@@ -267,7 +267,7 @@ GET /health
 # Retorna status da aplicação e banco de dados
 ```
 
-## 🚀 Deploy
+## Deploy
 
 ### Docker (Recomendado)
 
@@ -295,7 +295,7 @@ JWT_SECRET=chave-super-secreta-producao
 JWT_REFRESH_SECRET=chave-refresh-producao
 ```
 
-## 🤝 Contribuição
+## Contribuição
 
 1. Fork o projeto
 2. Crie uma branch para sua feature (`git checkout -b feature/AmazingFeature`)
@@ -303,20 +303,10 @@ JWT_REFRESH_SECRET=chave-refresh-producao
 4. Push para a branch (`git push origin feature/AmazingFeature`)
 5. Abra um Pull Request
 
-## 📝 Licença
+## Licença
 
 Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para detalhes.
 
-## 🆘 Suporte
+## Créditos
 
-- **Documentação**: http://localhost:3333/api/docs
-- **Issues**: [GitHub Issues](https://github.com/your-repo/issues)
-- **Email**: suporte@exemplo.com
-
-## 🏆 Créditos
-
-Desenvolvido com ❤️ pela equipe de engenharia da IBM, seguindo as melhores práticas de desenvolvimento enterprise.
-
----
-
-**Smart Document Analyzer** - Transformando documentos em insights inteligentes 🧠✨
+Desenvolvido por Gabriel Nogueira - [GitHub](https://github.com/gabrielnogueiraz)
