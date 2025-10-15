@@ -35,13 +35,20 @@ async function bootstrap() {
   app.useGlobalInterceptors(new LoggingInterceptor());
 
   // CORS configuration
+  const allowedOrigins = process.env.NODE_ENV === 'production' 
+    ? [
+        'https://smartanalyzer.vercel.app',
+        'https://smart-document-analyzer.vercel.app',
+        ...(process.env.ALLOWED_ORIGINS?.split(',') || [])
+      ]
+    : true;
+
   app.enableCors({
-    origin: process.env.NODE_ENV === 'production' 
-      ? process.env.ALLOWED_ORIGINS?.split(',') || false 
-      : true,
+    origin: allowedOrigins,
     credentials: true,
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
-    allowedHeaders: ['Content-Type', 'Authorization'],
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'],
+    optionsSuccessStatus: 200,
   });
 
   // Swagger documentation
